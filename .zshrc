@@ -1,3 +1,5 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/home/steven/.zsh/completions:"* ]]; then export FPATH="/home/steven/.zsh/completions:$FPATH"; fi
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/steven/.cargo/bin:$HOME/bin:/usr/local/bin:$PATH
 
@@ -107,3 +109,15 @@ export GOPATH=$HOME/go
 
 # opam configuration
 [[ ! -r /home/steven/.opam/opam-init/init.zsh ]] || source /home/steven/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+. "/home/steven/.deno/env"
+
+export JAVA_HOME=/opt/android-studio/jbr
+
+# Android SDK paths
+export ANDROID_HOME="$HOME/Android/Sdk"  # This is the default path, adjust if different
+export NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)"
+export PATH="$ANDROID_HOME/tools:$PATH"
+export PATH="$ANDROID_HOME/platform-tools:$PATH"
+export PATH="$ANDROID_HOME/emulator:$PATH"
+export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
+export PATH="$NDK_HOME:$PATH"
